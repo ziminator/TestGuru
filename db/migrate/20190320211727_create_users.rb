@@ -6,4 +6,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+
+  def get_level(level)
+    tests = []
+    tests << Test.select(:title).and(Test.where("level = ?", level))
+  end
 end
