@@ -8,9 +8,4 @@ class CreateTests < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
-
-  def self.name_tests(level)
-    titles = []
-    titles << Test.select(:title).and(Test.where("level = ?", level)).and(Test.order('test DESC'))
-  end
 end
