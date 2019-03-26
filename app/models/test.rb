@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
-  def self.name_tests(level)
-    titles = []
-    titles << Test.select(:title).and(Test.where("level = ?", level)).and(Test.order('test DESC'))
+  def self.name_tests(cat)
+    Test.select(:title).order(title: :desc).joins('JOIN categories \
+    ON tests.categories_id = categories.id').where("category = '#{cat}'")
   end
 end
