@@ -1,0 +1,2 @@
+class CreateUserTestRelation < ApplicationRecord
+end
