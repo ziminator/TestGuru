@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_many :user_test_relations
   has_many :tests, through: :user_test_relations
   has_many :made_tests, class_name: 'Test', foreign_key: :author_id
 
