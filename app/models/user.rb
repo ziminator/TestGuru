@@ -7,8 +7,6 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   def get_level(level)
-    user_test_relations.order(id: :desc).find_by(test_id: level.id)
-    #Test.joins("JOIN user_test_relations ON user_test_relations.tests_id = \
-    #tests.id").where("user_test_relations.users_id = id AND tests.level = #{level}")
+    user_test_relations.order(id: :desc).where(test_id: level)
   end
 end
