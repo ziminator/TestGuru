@@ -1,7 +1,11 @@
 class Answer < ApplicationRecord
 
   belongs_to :question
-
   scope :correct, -> { where(correct: true) }
+  validates :body, presence: true
+  validate :max_answer_count
 
+  def max_answer_count
+    errors.add(:question_id) unless question.answers.count.between?(0, 4)
+  end
 end
