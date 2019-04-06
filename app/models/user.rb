@@ -7,6 +7,6 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   def tests_by_level(level)
-    user_test_relations.order(id: :desc).where(test_id: level)
+    user_test_relations.order(id: :desc).where(test_id: level.id)
   end
 end
