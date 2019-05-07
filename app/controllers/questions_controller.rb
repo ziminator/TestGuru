@@ -17,8 +17,8 @@ class QuestionsController < ApplicationController
 
   def create
     question = @test.question.new(question_params)
-    if question.errors.any?
-      render plain: question.errors
+    if question.save
+      redirect_to test_questions_path(question.test_id)
     else
       render plain: question.inspect
     end
@@ -44,6 +44,7 @@ class QuestionsController < ApplicationController
   end
 
   def resque_question_not_found
-    render plain: 'Question not found!'
+    response.status = 404
+    response.body 'Question not found!'
   end
 end
