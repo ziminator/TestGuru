@@ -17,4 +17,5 @@ class Test < ApplicationRecord
   def self.name_tests(category_name)
     Test.get_category(category_name).order(title: :desc).pluck(:title)
   end
+
 end

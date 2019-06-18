@@ -8,4 +8,5 @@ class Answer < ApplicationRecord
   def max_answer_count
     errors.add(:question_id) if question.answers.size >= 4
   end
+
 end

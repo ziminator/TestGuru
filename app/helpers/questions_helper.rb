@@ -9,7 +9,7 @@ module QuestionsHelper
   end
 
   def current_year
-    Time.current.current.current.year
+    Time.current.year
   end
 
   def github_url(author, repo)
