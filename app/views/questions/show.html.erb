@@ -1,4 +1,4 @@
-<h1>Question</h1>
+<h1><%= @question.test.title %> Question</h1>
 
 <table>
   <tr>
@@ -8,6 +8,13 @@
     <td><%= @question.body %></td>
   </tr>
 </table>
+
+<h2>Answers</h2>
+<%= link_to 'New answer', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
 
 <p>
   <%= link_to 'Edit', edit_question_path %>
