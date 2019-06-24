@@ -52,8 +52,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_test
-    #@test = Test.find_test(params[:test_id])
-    @test = @question.test
+    @test = Test.find_test(params[:test_id])
   end
 
   def resque_question_not_found
