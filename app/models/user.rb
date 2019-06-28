@@ -1,10 +1,15 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
 
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :made_tests, class_name: 'Test', foreign_key: :author_id
 
-  validates :email, presence: true
+  VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  validates :email, presence: true, format: { with: VALID_EMAIL}
+
+  has_secure_password
 
   def tests_by_level(level)
     user_test_relations.order(id: :desc).where(test_id: level.id)
