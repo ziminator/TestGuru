@@ -1,13 +1,8 @@
 <h1><%= @question.test.title %> Question</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-  </tr>
-  <tr>
-    <td><%= @question.body %></td>
-  </tr>
-</table>
+<p>
+  <%= @question.body %>
+</p>
 
 <h2>Answers</h2>
 
@@ -18,6 +13,6 @@
 </ol>
 
 <p>
-  <%= link_to 'Edit', edit_question_path %>
-  <%= link_to 'Back', test_path(@question.test) %>
+  <%= link_to 'Edit', edit_question_path(@question) %>
+  <%= link_to 'Back', admin_test_path(@question.test) %>
 </p>
