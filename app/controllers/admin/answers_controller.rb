@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :find_question, only: %i[new create]
   before_action :set_answer, only: %i[show edit update destroy]
 
@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to @answer, notice: 'Answer was successfully created'
+      redirect_to admin_answer_path(@answer), notice: 'Answer was successfully created'
     else
       render :new
     end
@@ -23,15 +23,15 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, notice: 'Answer was successfully updated'
+      redirect_to admin_answer_path(@answer), notice: 'Answer was successfully updated'
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question, notice: 'Question was successfully deleted'
+    redirect_to admin_question_path(@answer.question)
   end
 
   private
