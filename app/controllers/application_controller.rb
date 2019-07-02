@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     { lang: I18n.locale }
   end
 
-  protected
+  private
 
   def after_sign_in_path_for(resource)
     if current_user.admin?
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = I18n.locale_available?(params[:lang])  ? params[:lang] : I18n.default_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
   end
 
 end

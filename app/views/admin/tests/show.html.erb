@@ -1,20 +1,34 @@
+<h1><%= t('.test', test: @test.title) %></h1>
+
 <p>
-  <strong>Title:</strong>
+  <strong>t('.test_title')</strong>
   <%= @test.title %>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <strong>t('.test_level')</strong>
   <%= @test_level(@test) %>
 </p>
 
-<h2>Questions</h2>
+<h2><%= t('.test_questions', test: @test.title) %></h2>
 
-<%= link_to 'New question', new_test_question_path(@test) %>
+<table>
+  <tr>
+    <th><%= t('.question_body') %></th>
+    <th colspan="3"><%= t('.actions') %></th>
+  </tr>
+  <tr>
+    <td><%= render @test.questions %></td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to t('.new_question'), new_test_question_path(@test) %>
+</p>
 
 <ol>
   <%= render partial: 'questions/question', collection: @test.questions %>
 </ol>
 
-<%= link_to 'Edit', edit_admin_test_path(@test) %>
-<%= link_to 'Back', admin_test_path %>
+<%= link_to t('.edit'), edit_admin_test_path(@test) %>
+<%= link_to t('.back'), admin_test_path %>
