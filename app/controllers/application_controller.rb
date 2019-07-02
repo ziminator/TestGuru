@@ -1,23 +1,24 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery with: :exception
+  before_action :set_locale
 
-  helper_method :current_user, :logged_in?
+  def default_url_options
+    { lang: I18n.locale }
+  end
 
-  private
+  protected
 
-  def authenticate_user!
-    unless current_user
-      cookies[:path] = request.original_url
-      redirect_to login_path, alert: 'Please, verify your Email and Password.'
+  def after_sign_in_path_for(resource)
+    if current_user.admin?
+      admin_tests_path
+    else
+      super
     end
   end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang])  ? params[:lang] : I18n.default_locale
   end
 
 end
