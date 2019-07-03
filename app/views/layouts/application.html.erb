@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestGuru</title>
+    <title><%= t('.testguru') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,9 +11,9 @@
 
   <body>
     <% if user_signed_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru |
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      </p>
+      <p class="nav user"><b><%= t('.welcome', name: current_user.name) %> [<%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>]</b></p>
+    <% else  %>
+      <p class="nav menu">[<%= link_to t('.log_in'), new_user_session_path %>][<%= link_to t('.sign_up'), new_user_registration_path %>]</p>
     <% end %>
 
     <%= render 'shared/flash' %>
