@@ -1,19 +1,22 @@
 <h1><%= test_header %></h1>
+<div class="form-group">
 
-<%= form_with model: [:admin, @test], local: true do |form| %>
-  <%= render 'shared/errors', resource: @test %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title, id: :test_title %>
-  </p>
-  <p>
-    <%= form.label :level %><br>
-    <%= form.number_field :level, id: :test_level %>
-  </p>
-  <p>
-    <%= form.label :category_id %><br>
-    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
-  </p>
+  <%= form_with model: [:admin, @test], local: true do |form| %>
+    <%= render 'shared/errors', resource: @test %>
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title, id: :test_title, class 'form_control' %>
+    </p>
+    <p>
+      <%= form.label :level %><br>
+      <%= form.number_field :level, id: :test_level, class 'form_control' %>
+    </p>
+    <p>
+      <%= form.label :category_id %><br>
+      <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, , class 'form_control' %>
+    </p>
 
-  <p><%= form.submit %></p>
-<%  end %>
+    <p><%= form.submit %></p>
+  <%  end %>
+
+</div>
