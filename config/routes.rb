@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :tests, :questions
+    resources :gists, shallow: true, only: :index
   end
 
 end

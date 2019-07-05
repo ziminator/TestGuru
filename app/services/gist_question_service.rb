@@ -6,6 +6,12 @@ class GistQuestionService
     @client = client || GitHubClient.new
   end
 
+  def call
+    client.create_gists(gist_params)
+  end
+
+  private
+
   def gist_params
     {
       desription: "A question about #{@test.title} from TestGuru",

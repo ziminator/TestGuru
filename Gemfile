@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'rb-readline'
 
+gem 'therubyracer'
+
 # URL
 gem 'faraday'
 
