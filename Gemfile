@@ -38,6 +38,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'rb-readline'
 
+# URL
+gem 'faraday'
+
 # LOCALIZATION
 gem 'rails-i18n', '~> 5.0.0'
 
