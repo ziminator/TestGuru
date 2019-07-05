@@ -1,34 +1,40 @@
-<h1><%= t('.test', test: @test.title) %></h1>
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-10 ">
 
-<p>
-  <strong>t('.test_title')</strong>
-  <%= @test.title %>
-</p>
+    <h1><%= t('.test', test: @test.title) %></h1>
 
-<p>
-  <strong>t('.test_level')</strong>
-  <%= @test_level(@test) %>
-</p>
+    <p>
+      <strong>t('.test_title')</strong>
+      <%= @test.title %>
+    </p>
 
-<h2><%= t('.test_questions', test: @test.title) %></h2>
+    <p>
+      <strong>t('.test_level')</strong>
+      <%= @test_level(@test) %>
+    </p>
 
-<table>
-  <tr>
-    <th><%= t('.question_body') %></th>
-    <th colspan="3"><%= t('.actions') %></th>
-  </tr>
-  <tr>
-    <td><%= render @test.questions %></td>
-  </tr>
-</table>
+    <div class="card border-primary">
+      <div class="card-body">
+        <h2><%= t('.test_questions', test: @test.title) %></h2>
 
-<p>
-  <%= link_to t('.new_question'), new_test_question_path(@test) %>
-</p>
+        <table>
+          <tr>
+            <th><%= t('.question_body') %></th>
+            <th colspan="3"><%= t('.actions') %></th>
+          </tr>
+          <tr>
+            <td><%= render @test.questions %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
-<ol>
-  <%= render partial: 'questions/question', collection: @test.questions %>
-</ol>
+    <p>
+      <%= link_to t('.new_question'), new_test_question_path(@test) %>
+    </p>
 
-<%= link_to t('.edit'), edit_admin_test_path(@test) %>
-<%= link_to t('.back'), admin_test_path %>
+    <p>
+      <%= link_to t('.back'), admin_test_path %>
+    </p>
+  </div>
+</div>
