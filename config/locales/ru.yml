@@ -52,6 +52,13 @@ ru:
         are_you_sure: "Вы уверены?"
       new:
         back: "Назад"
+    gists:
+      description: "Вопрос от теста %{title}"
+      index:
+        header: "Gists пользователей"
+        question: "Вопрос"
+        url: "Ссылка"
+        user: "Пользователь"
     nav:
       testguru_admin_panel: "Панель администратора ТестГуру"
       testguru: "Test Guru"
@@ -67,6 +74,9 @@ ru:
       failed: "Тест не пройден!"
       result: "Ваш результат: %{result}% правильных ответов"
       back: "Назад"
+    gist:
+      success: "Gist успешно сохранен и доступен по адресу: %{gist_url}"
+      failure: "Во время сохранения Gist произошла ошибка"
   helpers:
     submit:
       test:
