@@ -153,6 +153,11 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.3-x86-mingw32)
       mini_portile2 (~> 2.4.0)
+    octicons (9.1.1)
+      nokogiri (>= 1.6.3.1)
+    octicons_helper (9.1.1)
+      octicons (= 9.1.1)
+      rails
     orm_adapter (0.5.0)
     popper_js (1.14.5)
     public_suffix (3.1.1)
@@ -290,6 +295,7 @@ DEPENDENCIES
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mini_racer
+  octicons_helper
   puma (~> 3.11)
   rails (~> 5.2.2, >= 5.2.2.1)
   rails-i18n (~> 5.0.0)
