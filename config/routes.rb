@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   delete :logout, to: 'sessions#delete'
 
-  resources :tests, only: :index do
-    namespace :admin do
+  namespace :admin do
+    resources :tests, only: :index do
+      patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end

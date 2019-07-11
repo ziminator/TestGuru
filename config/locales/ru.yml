@@ -12,6 +12,8 @@ ru:
   project: "Учебный проект в онлайн-школе Thinknetica"
   admin:
     tests:
+      form_inline:
+        submit: "Ок"
       index:
         header: "Доступные тесты"
         title: "Название"
