@@ -2,7 +2,9 @@
   <div class="col col-md-10 ">
     <h1 align=center><%= t('.header') %></h1>
 
-    <table class="table">
+    <% render 'shared/errors', resource: @test %>
+
+    <table class="table table-bordered">
       <tr>
         <th class="sort-by-title pointer">
           <%= t('.title') %>
