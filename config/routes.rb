@@ -15,10 +15,9 @@ Rails.application.routes.draw do
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end
-    end
-
-    member do
-      post :start
+      member do
+        post :start
+      end
     end
   end
 

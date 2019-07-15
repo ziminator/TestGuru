@@ -21,6 +21,7 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+    author: "Alexandr Zimin"
 
   test_passages:
     result:
