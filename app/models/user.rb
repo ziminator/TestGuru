@@ -12,16 +12,18 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :made_tests, class_name: 'Test', foreign_key: :author_id
   has_many :gists
+  has_many :feedbacks
 
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
-  validates :email, presence: true, format: { with: VALID_EMAIL}
+  validates :email, presence: true, format: { with: VALID_EMAIL}, uniqueness: { case_sensetive: true }
 
   def tests_by_level(level)
-    user_test_relations.order(id: :desc).where(test_id: level.id)
+    tests.by_level(level)
+    #user_test_relations.order(id: :desc).where(test_id: level.id)
   end
 
   def test_passage(test)
-    test_passages.order(id: :desc).find_by(test_id: test.id)
+    tests_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
   def admin?

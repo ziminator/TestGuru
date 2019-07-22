@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: {registrations: 'registrations', sessions: 'users/sessions'}
 
   get 'sessions/new'
-  get 'users/new'
-
+  #get 'users/new'
   root 'tests#index'
 
-  delete :logout, to: 'sessions#delete'
+  resources :feedbacks, only: %i[show new create]
+
+  #delete :logout, to: 'sessions#delete'
 
   namespace :admin do
     resources :tests, only: :index do

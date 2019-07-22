@@ -1,7 +1,7 @@
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show update result gist]
+  before_action :set_tests_passage, only: %i[show update result gist]
 
   def show
 
@@ -10,9 +10,9 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
-      TestMailer.completed_test(@test_passage).deliver_now
-      redirect_to result_test_passage_path(@test_passage)
+    if @tests_passages.completed?
+      TestMailer.completed_test(@tests_passages).deliver_now
+      redirect_to result_test_passage_path(@tests_passages)
     else
       render :show
     end
@@ -27,21 +27,22 @@ class TestPassagesController < ApplicationController
     answer = service.call
 
     flash_options = if service.client.success?
-      { notice: t('.sucess', gist_url: answer[:html_url] }
-    else
-      { alert: t('.failure') }
-    end
+                      create_gist!(answer.html_url)
+                      { notice: t('.sucess', gist_url: answer[:html_url] }
+                    else
+                      { alert: t('.failure') }
+                    end
     redirect_to @tests_passages, flash_options
   end
 
   private
 
-  def set_test_pasage
-    @test_pasage = TestPassage.find(params[:id])
+  def set_tests_passage
+    @tests_pasages = TestPassage.find(params[:id])
   end
 
-  def create_gist(gist_url)
-    current_user.gist.create(question: @tests_passages.current_question, url: gist_url)
+  def create_gist!(gist_url)
+    current_user.gists.create(question: @tests_passages.current_question, url: gist_url)
   end
 
 end
