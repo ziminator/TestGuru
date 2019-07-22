@@ -18,7 +18,7 @@ function sortRowsByTitle() {
   }
 
   if (this.querySelector('.opticon-arrow-up').classList.contains('hide')) {
-    sortedRows.sort(compareRowsAsc)
+    sortedRows.sort(compareRowsAsc);
     this.querySelector('.opticon-arrow-up').classList.remove('hide')
     this.querySelector('.opticon-arrow-down').classList.add('hide')
   } else {

@@ -26,8 +26,9 @@ function formInLineHandler(testId) {
   if (!$formInLine.length) {
     if ($formInLine.is(':visible')) {
       link.textContent = 'Cancel'
-    else
+    } else {
       link.textContent = 'Edit'
     }
   }
 }
+
