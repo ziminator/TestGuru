@@ -6,7 +6,7 @@
 
   <span class="navbar-text">
     <% if user_signed_in? %>
-      <p class="nav user"><b><%= t('.welcome', name: current_user.name) %> [<%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>]</b></p>
+      <p class="nav user"><b><%= t('.welcome', name: current_user.first_name) %> [<%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>]</b></p>
     <% else  %>
       <p class="nav menu">[<%= link_to t('.log_in'), new_user_session_path %>][<%= link_to t('.sign_up'), new_user_registration_path %>]</p>
     <% end %>

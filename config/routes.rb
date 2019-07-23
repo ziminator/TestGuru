@@ -8,6 +8,19 @@ Rails.application.routes.draw do
 
   resources :feedbacks, only: %i[show new create]
 
+  resources :tests, only: :index do
+    member do
+      post :start
+    end
+  end
+
+  resources :tests_passages, only: %i[show update] do
+    member do
+      get :result
+      post :gist
+    end
+  end
+
   #delete :logout, to: 'sessions#delete'
 
   namespace :admin do
@@ -16,22 +29,8 @@ Rails.application.routes.draw do
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
       end
-      member do
-        post :start
-      end
     end
-  end
-
-  resources :test_passages, only: %i[show update] do
-    member do
-      get :result
-      post :gist
-    end
-  end
-
-  namespace :admin do
-    resources :tests, :questions
     resources :gists, shallow: true, only: :index
+    resources :feedbacks, only: %i[index destroy]
   end
-
 end

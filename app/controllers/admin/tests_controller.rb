@@ -1,4 +1,4 @@
-class Admin::TestsController < Aadmin::BaseController
+class Admin::TestsController < Admin::BaseController
 
   before_action :set_tests, only: %i[index update_inline]
   before_action :find_test, only: %i[show edit update destroy update_inline]
