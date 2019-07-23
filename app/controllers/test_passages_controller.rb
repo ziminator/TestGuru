@@ -38,7 +38,7 @@ class TestPassagesController < ApplicationController
   private
 
   def set_tests_passage
-    @tests_pasages = TestPassage.find(params[:id])
+    @tests_passages = TestPassage.find(params[:id])
   end
 
   def create_gist!(gist_url)

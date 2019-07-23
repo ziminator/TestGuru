@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id"
-    t.string "email", default: ""
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
     t.string "type", default: "User", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "password_digest"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
