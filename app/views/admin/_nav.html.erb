@@ -3,6 +3,6 @@
     <%= link_to 'Gists', admin_gists_path, class: 'nav-item nav-link' %>
 
   <span class="navbar-text">
-  <p class="nav user"><b><%= t('.welcome', name: current_user.name) %> [<%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>]</b></p>
+  <p class="nav user"><b><%= t('.welcome', name: current_user.first_name) %> [<%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>]</b></p>
     </span>
 </nav>

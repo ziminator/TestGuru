@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   #delete :logout, to: 'sessions#delete'
 
   namespace :admin do
-    resources :tests, only: :index do
+    #resources :tests, only: :index do
+    resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
