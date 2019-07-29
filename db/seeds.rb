@@ -18,9 +18,9 @@
 #  { first_name: 'Lara', email: 'lara@example.com', password: 'password' }
 #])
 
-admins = Admin.create([
-  { first_name: 'Alexandr', last_name: 'Zimin', email: 'a.zimin@example.com', password: 'P@ssw0rd', type: 'Admin' }
-])
+#admins = Admin.create([
+#  { first_name: 'Alexandr', last_name: 'Zimin', email: 'a.zimin@example.com', password: 'P@ssw0rd', type: 'Admin' }
+#])
 
 #tests = Test.create([
 #  { title: 'Ruby', level: 0, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id },
@@ -37,7 +37,9 @@ admins = Admin.create([
 #  { question: "Что такое 'HTML'?", test_id: tests.fetch(3).id }
 #])
 
-answers = Answer.create([ { answer: "'Ruby' это интерпретируемый язык программирования.", correct: true } ]) #, questions.fetch(0).id }
+#answers =
+Answer.create([ { answer: "Тест" } ])
+#answers = Answer.create([ { answer: "'Ruby' это интерпретируемый язык программирования.", correct: true } ]) #, questions.fetch(0).id }
 #  { answer: "'Ruby' это компилируемый язык программирования.", correct: false, question_id: questions.fetch(0).id },
 #  { answer: "'BasicObject'.", correct: true, question_id: questions.fetch(1).id },
 #  { answer: "'Object'.", correct: false, question_id: questions.fetch(1).id },
