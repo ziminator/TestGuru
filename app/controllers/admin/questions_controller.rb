@@ -41,7 +41,7 @@ class Admin::QuestionsController < Admin::BaseController
   private
 
   def quetion_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:question)
   end
 
   def find_question
@@ -49,7 +49,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def find_test
-    @test = Test.find_test(params[:test_id])
+    @test = @question.test
   end
 
   def resque_question_not_found

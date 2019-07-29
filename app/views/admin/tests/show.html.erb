@@ -4,13 +4,13 @@
     <h1><%= t('.test', test: @test.title) %></h1>
 
     <p>
-      <strong>t('.test_title')</strong>
+      <strong><%= t('.test_title') %></strong>
       <%= @test.title %>
     </p>
 
     <p>
-      <strong>t('.test_level')</strong>
-      <%= @test_level(@test) %>
+      <strong><%= t('.test_level') %></strong>
+      <%= @test.level %>
     </p>
 
     <div class="card border-primary">
@@ -30,11 +30,11 @@
     </div>
 
     <p>
-      <%= link_to t('.new_question'), new_test_question_path(@test) %>
+      <%= link_to t('.new_question'), new_admin_test_question_path(@test) %>
     </p>
 
     <p>
-      <%= link_to t('.back'), admin_test_path %>
+      <%= link_to t('.back'), admin_tests_path %>
     </p>
   </div>
 </div>

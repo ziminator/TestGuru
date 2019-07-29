@@ -45,6 +45,6 @@ class Admin::AnswersController < Admin::BaseController
     end
 
     def answer_params
-      params.require(:answer).permit(:body, :correct)
+      params.require(:answer).permit(:answer, :correct)
     end
 end

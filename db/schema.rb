@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answers", force: :cascade do |t|
-    t.string "answer", null: false
-    t.boolean "correct", default: false, null: false
-    t.bigint "question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "category"
     t.datetime "created_at", null: false
@@ -49,11 +40,10 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "question"
-    t.integer "test_id"
+    t.string "question", null: false
+    t.bigint "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "body"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -108,6 +98,6 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "answers", "questions"
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "questions", "tests"
 end

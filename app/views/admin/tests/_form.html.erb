@@ -5,15 +5,15 @@
     <%= render 'shared/errors', resource: @test %>
     <p>
       <%= form.label :title %><br>
-      <%= form.text_field :title, id: :test_title, class 'form_control' %>
+      <%= form.text_field :title, id: :test_title, class: 'form_control' %>
     </p>
     <p>
       <%= form.label :level %><br>
-      <%= form.number_field :level, id: :test_level, class 'form_control' %>
+      <%= form.number_field :level, id: :test_level, class: 'form_control' %>
     </p>
     <p>
       <%= form.label :category_id %><br>
-      <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, , class 'form_control' %>
+      <%= form.collection_select :category_id, Category.all, :id, :category, prompt: true, class: 'form_control' %>
     </p>
 
     <p><%= form.submit %></p>

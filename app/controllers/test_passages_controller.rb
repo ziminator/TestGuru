@@ -1,14 +1,18 @@
+require "#{Rails.root}/lib/clients/octo_kit_client"
+
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_tests_passage, only: %i[show update result gist]
 
   def show
+  end
 
+  def result
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    @tests_passage.accept!(params[:answer_ids])
 
     if @tests_passages.completed?
       TestMailer.completed_test(@tests_passages).deliver_now
@@ -16,10 +20,6 @@ class TestPassagesController < ApplicationController
     else
       render :show
     end
-  end
-
-  def result
-
   end
 
   def gist
