@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_22_090620) do
+ActiveRecord::Schema.define(version: 2019_07_29_212604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answers", force: :cascade do |t|
+    t.string "answer", null: false
+    t.boolean "correct", default: false, null: false
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
   create_table "categories", force: :cascade do |t|
-    t.string "category"
+    t.string "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,8 +69,8 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title"
-    t.integer "level"
+    t.string "title", null: false
+    t.integer "level", null: false
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -77,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
     t.integer "author_id"
     t.string "email", default: ""
     t.string "type", default: "User", null: false
-    t.string "first_name"
+    t.string "first_name", null: false
     t.string "last_name"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -98,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_090620) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "questions", "tests"
 end
