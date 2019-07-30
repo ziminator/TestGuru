@@ -19,7 +19,7 @@ users = User.create([
 ])
 
 admins = Admin.create([
-  { first_name: 'Alexandr', last_name: 'Zimin', email: 'a.zimin@example.com', password: 'P@ssw0rd', type: 'Admin' }
+  { first_name: 'Alexandr', last_name: 'Zimin', email: 'aleksander.zimin@gmail.com', password: 'P@ssw0rd', type: 'Admin' }
 ])
 
 tests = Test.create([
