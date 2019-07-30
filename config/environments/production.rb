@@ -63,10 +63,10 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "TestGuru_#{Rails.env}"
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'peaceful-atoll-19770.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'ziminator.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:                 'smtp.mail.ru',
+    address:                 'smtp.gmail.com',
     port:                    587,
     user_name:               ENV['SMTP_USERNAME'],
     password:                ENV['SMTP_PASSWORD'],
