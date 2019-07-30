@@ -28,7 +28,7 @@ class TestPassagesController < ApplicationController
 
     flash_options = if service.client.success?
                       create_gist!(answer.html_url)
-                      { notice: t('.sucess', gist_url: answer[:html_url] }
+                      { notice: t('.sucess'), gist_url: answer[:html_url] }
                     else
                       { alert: t('.failure') }
                     end
