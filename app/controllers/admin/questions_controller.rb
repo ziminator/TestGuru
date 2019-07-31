@@ -17,7 +17,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def create
     @test = Test.find(params[:test_id])
-    @question = @test.question.new(question_params)
+    @question = @test.questions.new(question_params)
     if @question.save
       redirect_to admin_question_path(@question)
     else
@@ -29,7 +29,7 @@ class Admin::QuestionsController < Admin::BaseController
     if @question.update(question_params)
       redirect_to admin_question_path(@question)
     else
-      render :new
+      render :edit
     end
   end
 
@@ -40,7 +40,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   private
 
-  def quetion_params
+  def question_params
     params.require(:question).permit(:question)
   end
 
