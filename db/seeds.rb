@@ -23,11 +23,11 @@ admins = Admin.create([
 ])
 
 tests = Test.create([
-  { title: 'Ruby', level: 0, category_id: categories.fetch(0).id, author: admins.fetch(0) },
-  { title: 'Ruby', level: 1, category_id: categories.fetch(1).id, author: admins.fetch(0) },
-  { title: 'Ruby on Rails', level: 1, category_id: categories.fetch(1).id, author: admins.fetch(0) },
-  { title: 'Ruby on Rails', level: 2, category_id: categories.fetch(2).id, author: admins.fetch(0) },
-  { title: 'HTML', level: 0, category_id: categories.fetch(0).id, author: admins.fetch(0) }
+  { title: 'Ruby', level: 1, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id },
+  { title: 'Ruby', level: 1, category_id: categories.fetch(1).id, user_id: admins.fetch(0).id },
+  { title: 'Ruby on Rails', level: 1, category_id: categories.fetch(1).id, user_id: admins.fetch(0).id },
+  { title: 'Ruby on Rails', level: 2, category_id: categories.fetch(2).id, user_id: admins.fetch(0).id },
+  { title: 'HTML', level: 1, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id }
 ])
 
 questions = Question.create([
@@ -37,7 +37,8 @@ questions = Question.create([
   { question: "Что такое 'HTML'?", test_id: tests.fetch(3).id }
 ])
 
-answers = Answer.create([ { answer: "'Ruby' это интерпретируемый язык программирования.", correct: true, question: questions[0] },
+answers = Answer.create([
+  { answer: "'Ruby' это интерпретируемый язык программирования.", correct: true, question: questions[0] },
   { answer: "'Ruby' это компилируемый язык программирования.", correct: false, question: questions[0] },
   { answer: "'BasicObject'.", correct: true, question: questions[1] },
   { answer: "'Object'.", correct: false, question: questions[1] },
