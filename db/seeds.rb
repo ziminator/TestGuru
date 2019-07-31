@@ -22,20 +22,23 @@ admins = Admin.create([
   { first_name: 'Alexandr', last_name: 'Zimin', email: 'aleksander.zimin@gmail.com', password: 'P@ssw0rd', type: 'Admin' }
 ])
 
-tests = Test.create([  { title: 'Ruby', level: 1, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id },
+tests = Test.create([
+  { title: 'Ruby', level: 1, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id },
   { title: 'Ruby', level: 1, category_id: categories.fetch(1).id, user_id: admins.fetch(0).id },
   { title: 'Ruby on Rails', level: 1, category_id: categories.fetch(1).id, user_id: admins.fetch(0).id },
   { title: 'Ruby on Rails', level: 2, category_id: categories.fetch(2).id, user_id: admins.fetch(0).id },
   { title: 'HTML', level: 1, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id }
 ])
 
-questions = Question.create([  { question: "'Ruby' компилируемый или интерпретируемый язык?", test_id: tests.fetch(0).id },
+questions = Question.create([
+  { question: "'Ruby' компилируемый или интерпретируемый язык?", test_id: tests.fetch(0).id },
   { question: "Как называется базовый класс в 'Ruby'?", test_id: tests.fetch(1).id },
   { question: "Что такое 'Rails'?", test_id: tests.fetch(2).id },
   { question: "Что такое 'HTML'?", test_id: tests.fetch(3).id }
 ])
 
-answers = Answer.create([ { answer: "'Ruby' это интерпретируемый язык программирования.", correct: true, question_id: questions.fetch(0).id },
+answers = Answer.create([
+  { answer: "'Ruby' это интерпретируемый язык программирования.", correct: true, question_id: questions.fetch(0).id },
   { answer: "'Ruby' это компилируемый язык программирования.", correct: false, question_id: questions.fetch(0).id },
   { answer: "'BasicObject'.", correct: true, question_id: questions.fetch(1).id },
   { answer: "'Object'.", correct: false, question_id: questions.fetch(1).id },
