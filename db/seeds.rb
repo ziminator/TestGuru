@@ -24,10 +24,9 @@ admins = Admin.create([
 
 tests = Test.create([
   { title: 'Ruby', level: 1, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id },
-  { title: 'Ruby', level: 1, category_id: categories.fetch(1).id, user_id: admins.fetch(0).id },
+  { title: 'Ruby classes', level: 1, category_id: categories.fetch(1).id, user_id: admins.fetch(0).id },
   { title: 'Ruby on Rails', level: 1, category_id: categories.fetch(1).id, user_id: admins.fetch(0).id },
-  { title: 'Ruby on Rails', level: 2, category_id: categories.fetch(2).id, user_id: admins.fetch(0).id },
-  { title: 'HTML', level: 1, category_id: categories.fetch(0).id, user_id: admins.fetch(0).id }
+  { title: 'HTML', level: 1, category_id: categories.fetch(2).id, user_id: admins.fetch(0).id }
 ])
 
 questions = Question.create([
