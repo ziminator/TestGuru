@@ -16,7 +16,7 @@ class Test < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :level }
 
   def self.name_tests(category_name)
-    Test.get_category(category_name).order(title: :desc).pluck(:title)
+    Test.get_category(category_name).order(id: :desc).pluck(:title)
   end
 
 end
