@@ -15,7 +15,7 @@ class FeedbacksController < ApplicationController
     respond_to do |format|
       if @feedback.save
         format.html { redirect_to root_path, notice: t('.feedback_was_created') }
-        FeedbacksMailer.set_feedback(@feedback).deliver_now
+        FeedbacksMailer.completed_feedback(@feedback).deliver_now
       else
         format.html { render :new }
       end

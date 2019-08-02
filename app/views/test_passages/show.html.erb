@@ -1,0 +1,24 @@
+<h1><%= @tests_passages.test.title %></h1>
+<progress value=0 max=100 id="progress" data-progress-percent=<%= progress_result %>></progress>
+<i>
+  <p>
+    <%= t('.question') %> №<%= @tests_passages.question_num %>/<%= @tests_passages.test.questions.count %>
+  </p>
+</i>
+
+<b>
+  <%= @tests_passages.current_question.question %>
+</b>
+
+<%= form_with url: test_passage_path(@tests_passages), local: true, method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @tests_passages.current_question.answers, :id, :answer, include_hidden: false do |b| %>
+    <p>
+      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+      <%= b.label %>
+    </p>
+  <% end %>
+
+  <p><%= link_to 'Gist Question', gist_test_passage_path(@tests_passages), method: :post %></p>
+  <p><%= form.submit t('.next') %></p>
+
+<% end %>

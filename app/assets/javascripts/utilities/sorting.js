@@ -17,14 +17,14 @@ function sortRowsByTitle() {
     sortedRows.push(rows[i])
   }
 
-  if (this.querySelector('.opticon-arrow-up').classList.contains('hide')) {
-    sortedRows.sort(compareRowsAsc);
-    this.querySelector('.opticon-arrow-up').classList.remove('hide')
-    this.querySelector('.opticon-arrow-down').classList.add('hide')
+  if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
+    sortedRows.sort(compareRowsAsc)
+    this.querySelector('.octicon-arrow-up').classList.remove('hide')
+    this.querySelector('.octicon-arrow-down').classList.add('hide')
   } else {
     sortedRows.sort(compareRowsDesc)
-    this.querySelector('.opticon-arrow-down').classList.remove('hide')
-    this.querySelector('.opticon-arrow-up').classList.add('hide')
+    this.querySelector('.octicon-arrow-down').classList.remove('hide')
+    this.querySelector('.octicon-arrow-up').classList.add('hide')
   }
 
   var sortedTable = document.createElement('table')
