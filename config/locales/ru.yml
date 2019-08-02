@@ -66,7 +66,7 @@ ru:
       testguru: "Test Guru"
       log_out: "Выход"
       welcome: "Добро пожаловать, %{name}"
-  tests_passages:
+  test_passages:
     show:
       question: "Вопрос"
       next: "Следующий"

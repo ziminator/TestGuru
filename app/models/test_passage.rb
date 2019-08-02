@@ -18,7 +18,7 @@ class TestPassage < ApplicationRecord
       self.correct_questions += 1
     end
 
-    self.current_question = next_question
+    #self.current_question = next_question
     save!
   end
 
