@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rb-readline'
 gem 'execjs'
-gem 'faker'
+gem "octokit", "~> 4.0"
 
 # URL
 gem 'faraday'

@@ -3,8 +3,8 @@ class Test < ApplicationRecord
   has_many :test_passages
   has_many :users, through: :test_passages
   has_many :questions
-  belongs_to :category, optional: true
-  belongs_to :author, class_name: 'User'
+  belongs_to :category
+  belongs_to :user, class_name: 'User', foreign_key: :user_id
 
   scope :by_level, -> (level) { where(level: level) }
   scope :simple, -> { by_level(0..1) }
@@ -16,7 +16,7 @@ class Test < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :level }
 
   def self.name_tests(category_name)
-    Test.get_category(category_name).order(id: :desc).pluck(:title)
+    with_category(category_name).order(id: :desc).pluck(:title)
   end
 
 end
