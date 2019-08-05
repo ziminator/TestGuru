@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :made_tests, class_name: 'Test', foreign_key: :user_id
   has_many :gists
   has_many :feedbacks
+  has_many :users_badges
+  has_many :badges, through: :users_badges
 
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, format: { with: VALID_EMAIL}, uniqueness: { case_sensetive: true }
