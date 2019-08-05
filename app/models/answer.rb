@@ -10,7 +10,7 @@ class Answer < ApplicationRecord
   private
 
   def max_answer_count
-    errors.add(:question_id) if question.answers.count >= 4
+    errors.add(:question, "fail") if question.answers.count >= 4
   end
 
 end

@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_many :test_passages
   has_many :tests, through: :test_passages
-  has_many :made_tests, class_name: 'Test', foreign_key: :author_id
+  has_many :made_tests, class_name: 'Test', foreign_key: :user_id
   has_many :gists
   has_many :feedbacks
 
@@ -18,8 +18,8 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL}, uniqueness: { case_sensetive: true }
 
   def tests_by_level(level)
-    tests.where(level: level)
-    #tests.by_level(level)
+    #tests.where(level: level)
+    tests.by_level(level)
     #user_test_relations.order(id: :desc).where(test_id: level.id)
   end
 
