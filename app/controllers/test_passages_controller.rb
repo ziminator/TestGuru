@@ -1,5 +1,5 @@
 require "#{Rails.root}/lib/clients/octo_kit_client"
-require "#{Rails.root}/lib/clients/git_hub_client"
+#require "#{Rails.root}/lib/clients/git_hub_client"
 
 class TestPassagesController < ApplicationController
 
@@ -26,7 +26,8 @@ class TestPassagesController < ApplicationController
   def gist
     #result = GistQuestionService.new(@tests_passages.current_question, OctoKitClient.new)
     #answer = service.call
-    result = GistQuestionService.new(@tests_passages.current_question OctoKitClient.new)
+    result = GistQuestionService.new(@tests_passages.current_question)
+    answer = result.call
 
     #flash_options = if result.client.success?
     #                  create_gist!(answer.html_url)
@@ -34,7 +35,7 @@ class TestPassagesController < ApplicationController
     #                else
     #                  { alert: t('.failure') }
     #                end
-    flash_options = if result.client.success?
+    flash_options = if result.success?
                       create_gist!(answer.html_url)
                       { notice: t('.success', gist_url: answer[:html_url]) }
                     else
