@@ -1,4 +1,5 @@
 class Badge < ApplicationRecord
+
   BADGES_TYPE = {
     'Прохождение всех тестов категории' => :all_category_tests,
     'Прохождение теста с первой попытки' => :test_first_try,
@@ -25,4 +26,5 @@ class Badge < ApplicationRecord
   def set_default_image_path
     self.image_path = 'badges/badge-default.png'
   end
+
 end

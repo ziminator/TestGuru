@@ -1,4 +1,4 @@
-require "#{Rails.root}/lib/clients/octo_kit_client"
+#require "#{Rails.root}/lib/clients/octo_kit_client"
 #require "#{Rails.root}/lib/clients/git_hub_client"
 
 class TestPassagesController < ApplicationController
@@ -52,6 +52,12 @@ class TestPassagesController < ApplicationController
 
   def create_gist!(gist_url)
     current_user.gists.create(question: @tests_passages.current_question, url: gist_url)
+  end
+
+  def awarded_badges!
+    badge_service = BadgeService.new(@tests_passages)
+    badge_service.awarded_badges!
+    current_user.badges.push(badge_service.badges)
   end
 
 end

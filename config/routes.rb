@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   #get 'users/new'
   root 'tests#index'
 
-  resources :feedbacks, only: %i[new create] do
-    member do
-      get :new
-      post :create
-    end
-  end
+  resources :feedbacks, only: %i[new create] #do
+  resources :badges, only: :index
+
+#    member do
+#      get :new
+#      post :create
+#    end
+#  end
 
   resources :tests, only: :index do
     member do
@@ -38,5 +40,6 @@ Rails.application.routes.draw do
     end
     resources :gists, shallow: true, only: :index
     resources :feedbacks, only: %i[index destroy]
+    resources :badges
   end
 end
