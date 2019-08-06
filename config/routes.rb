@@ -42,4 +42,7 @@ Rails.application.routes.draw do
     resources :feedbacks, only: %i[index destroy]
     resources :badges
   end
+
+  #resources :badges
+
 end
