@@ -14,6 +14,11 @@ class Test < ApplicationRecord
 
   validates :level, numericality: { only_integer: true, greater_than: 0 }
   validates :title, presence: true, uniqueness: { scope: :level }
+  validates :time_limit, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 1,
+    allow_blank: true
+  }
 
   def self.name_tests(category_name)
     with_category(category_name).order(id: :desc).pluck(:title)

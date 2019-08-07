@@ -60,4 +60,10 @@ class TestPassagesController < ApplicationController
     current_user.badges.push(badge_service.badges)
   end
 
+  def check_passing_time
+    return unless @tests_passages.time_out?
+
+    redirect_to result_tests_passage_path(@tests_passages)
+  end
+
 end
