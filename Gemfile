@@ -52,6 +52,7 @@ gem 'rails-i18n', '~> 5.0.0'
 #UI
 gem 'jquery-rails'
 gem 'bootstrap', '>= 4.3.1'
+gem "bootstrap_form"
 gem 'octicons_helper'
 
 group :development, :test do

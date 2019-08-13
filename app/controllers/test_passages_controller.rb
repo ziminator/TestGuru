@@ -1,12 +1,11 @@
-require "#{Rails.root}/lib/clients/octo_kit_client"
-#require "#{Rails.root}/lib/clients/git_hub_client"
-
 class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_tests_passage, only: %i[show update result gist]
 
   def show
+    @time_left = (@tests_passages.created_at.since(@tests_passages.test.time_limit.minutes) - Time.now).round
+    redirect_to result_test_passage_path(@tests_passages) if @time_left <= 0
   end
 
   def result
@@ -24,17 +23,9 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    #result = GistQuestionService.new(@tests_passages.current_question, OctoKitClient.new)
-    #answer = service.call
     result = GistQuestionService.new(@tests_passages.current_question)
     answer = result.call
 
-    #flash_options = if result.client.success?
-    #                  create_gist!(answer.html_url)
-    #                  { notice: t('.sucess'), gist_url: answer[:html_url] }
-    #                else
-    #                  { alert: t('.failure') }
-    #                end
     flash_options = if result.success?
                       create_gist!(answer.html_url)
                       { notice: t('.success', gist_url: answer[:html_url]) }
@@ -52,6 +43,12 @@ class TestPassagesController < ApplicationController
 
   def create_gist!(gist_url)
     current_user.gists.create(question: @tests_passages.current_question, url: gist_url)
+  end
+
+  def awarded_badges!
+    badge_service = BadgeService.new(@tests_passages)
+    badge_service.awarded_badges!
+    current_user.badges.push(badge_service.badges)
   end
 
 end

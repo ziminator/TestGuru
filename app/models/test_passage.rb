@@ -17,7 +17,6 @@ class TestPassage < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-
     #self.current_question = next_question
     save!
   end
@@ -32,6 +31,19 @@ class TestPassage < ApplicationRecord
 
   def question_num
     test.questions.order(id: :asc).find_index(current_question) + 1
+  end
+
+  def time_limit_test?
+    test.time_limit.present?
+  end
+
+  def remaining_seconds
+    ((created_at + test.time_limit.minutes) - Time.current).to_i
+  end
+
+  def time_out?
+    remaining_seconds <= 0 if time_limit_test?
+    #byebug
   end
 
   private

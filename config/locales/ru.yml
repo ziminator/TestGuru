@@ -2,14 +2,42 @@ ru:
   tests:
     test:
       start: "Старт"
+      time_limit: "%{time} мин"
+      time_unlimit: "Не ограничено"
     index:
       header: "Доступные тесты"
       title: "Название"
       level: "Уровень"
       questions_number: "Количество вопросов"
       action: "Действие"
+      time_limit: "Отведенное время"
   author: "Александр Зимин"
   project: "Учебный проект в онлайн-школе Thinknetica"
+  badges:
+    index:
+      user_badges: "Ваши награды"
+      available_badges: "Доступные награды"
+      title: "Название"
+      image_path: "Иконка"
+      assigment_rule: "Правило награждения"
+      actions: "Действия"
+      new_badge: "Новая награда"
+    show:
+      title: "Награда %{badge_title}"
+      assigment_rule: "Правило награждения"
+      edit: "Редактировать"
+      back: "Назад"
+    new:
+      header: "Добавление награды"
+      back: "Назад"
+    edit:
+      header: "Редактировать %{title}"
+      back: "Назад"
+    badge:
+      show: "Посмотреть"
+      edit: "Редактировать"
+      delete: "Удалить"
+      delete_confirmation: "Вы уверены?"
   admin:
     tests:
       form_inline:
@@ -21,12 +49,15 @@ ru:
         questions_number: "Количество вопросов"
         action: "Действия"
         new: "Создать новый тест"
+        time_limit: "Отведенное время"
       new:
         back: "Назад"
       test:
         show: "Показать"
         edit: "Редактировать"
         delete: "Удалить"
+        time_limit: "%{time} мин"
+        time_unlimit: "Не ограничено"
         are_you_sure: "Вы уверены?"
       edit:
         back: "Назад"
@@ -94,6 +125,9 @@ ru:
         category_id: "Категория"
     select:
       prompt: "Пожалуйста, выберите"
+    badge:
+      create: "Добавить награду"
+      update: "Обновить нагруду"
   layouts:
     admin:
       admin_panel: "Панель администратора, ТестГуру"

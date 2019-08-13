@@ -12,9 +12,9 @@ categories = Category.create([
 ])
 
 users = User.create([
-  { first_name: 'Alex', email: 'alex@example.com', password: 'password' },
-  { first_name: 'July', email: 'july@example.com', password: 'password' },
-  { first_name: 'Alisa', email: 'alisa@example.com', password: 'password' },
+  #{ first_name: 'Alex', email: 'alex@example.com', password: 'password' },
+  #{ first_name: 'July', email: 'july@example.com', password: 'password' },
+  #{ first_name: 'Alisa', email: 'alisa@example.com', password: 'password' },
   { first_name: 'Lara', email: 'lara@example.com', password: 'password' }
 ])
 
