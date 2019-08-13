@@ -1,7 +1,7 @@
 <h1><%= t('.test_completed', test: @tests_passages.test.title) %> </h1>
-<%= t('test_status.result.time_failed') if @tests_passages.time_out? %>
+<font color="red"><%= t('test_status.result.time_failed') if @tests_passages.time_out? %></font>
 
-<% if @tests_passages.success? %>
+<% if @tests_passages.success? && !@tests_passages.time_out? %>
 
   <h2><%= t('.passed') %></h2>
 

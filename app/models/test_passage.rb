@@ -43,6 +43,7 @@ class TestPassage < ApplicationRecord
 
   def time_out?
     remaining_seconds <= 0 if time_limit_test?
+    #byebug
   end
 
   private
